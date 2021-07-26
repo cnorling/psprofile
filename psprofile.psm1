@@ -40,6 +40,7 @@ function kcswitch {
     kc config use-context $context}
 function kccontexts {kc config get-contexts}
 function kccurrent {kc config current-context}
+New-Alias -Name "k" -Value kc
 New-Alias -Name "kcs" -Value kcswitch
 New-Alias -Name "grep" -Value Select-String
 New-Alias -Name "Dicker" -Value Docker
