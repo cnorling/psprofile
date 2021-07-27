@@ -46,6 +46,7 @@ New-Alias -Name "grep" -Value Select-String
 New-Alias -Name "Dicker" -Value Docker
 New-Alias -Name "Digger" -Value Docker
 New-Alias -Name "Dogger" -Value Docker
+New-Alias -Name "canine" -value k9s
 function Maintain {
     param(
         [String]
