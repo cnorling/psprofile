@@ -38,7 +38,7 @@ New-Alias -Name "canine" -value k9s
 function Maintain {
     param(
         [String]
-        $project
+        $project                                            
     )
     & "C:\users\teran.selin\git\$project.code-workspace"
 }
@@ -48,6 +48,55 @@ function nani {
     $command = ($history -split("\s"))[0]
 
     Get-Help $Command
+}
+
+function ConvertTo-Base64 {
+    [CmdletBinding(ConfirmImpact = 'None', PositionalBinding)]
+    param (
+        # The base64 string to encode
+        [Parameter(Mandatory, ValueFromPipeline)]
+        [ValidateNotNull()]
+        [string[]]
+        $InputValue,
+        # The encoding of the string
+        [Parameter(Mandatory=$false)]
+        [ValidateSet('UTF8','ASCII','Unicode','UTF32','UTF7','BigEndianUnicode')]
+        [string]
+        $Encoding = 'UTF8'
+    )
+    begin {
+        $encd = [System.Text.Encoding]::$Encoding
+    }
+    process {
+        foreach($item in $InputValue) {
+            $bytes = $encd.GetBytes($item)
+            [System.Convert]::ToBase64String($bytes)
+        }
+    }
+}
+function ConvertFrom-Base64 {
+    [CmdletBinding(ConfirmImpact = 'None', PositionalBinding)]
+    param (
+        # The base64 string to decode
+        [Parameter(Mandatory, ValueFromPipeline)]
+        [ValidateNotNull()]
+        [string[]]
+        $InputValue,
+        # The encoding of the string
+        [Parameter(Mandatory=$false)]
+        [ValidateSet('UTF8','ASCII','Unicode','UTF32','UTF7','BigEndianUnicode')]
+        [string]
+        $Encoding = 'UTF8'
+    )
+    begin {
+        $encd = [System.Text.Encoding]::$Encoding
+    }
+    process {
+        foreach($item in $InputValue) {
+            $bytes = [System.Convert]::FromBase64String($item)
+            $encd.GetString($bytes)
+        }
+    }
 }
 
 function bgdc {
