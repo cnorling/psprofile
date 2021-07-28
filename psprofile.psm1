@@ -22,21 +22,6 @@ function update-profile {import-module $profile}
 function kcswitch {
     param (
         [parameter(Mandatory=$true)]
-        [validateset(
-            'codesigner', 
-            'devops', 
-            'docker-desktop', 
-            'library',
-            'minikube', 
-            'old-library-prod', 
-            'old-library-stage', 
-            'minikube', 
-            'old_devops', 
-            'staging',
-            'website'
-            )]
-        [string]$context
-    )
     kc config use-context $context}
 function kccontexts {kc config get-contexts}
 function kccurrent {kc config current-context}
