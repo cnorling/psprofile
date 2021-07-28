@@ -16,7 +16,7 @@ function gc {& gcloud $args}
 function nsl {nslookup $args}
 function fdns {ipconfig /flushdns}
 function kc {& kubectl $args}
-function get-weather {(curl http://wttr.in).ParsedHtml.body.outerText}
+function get-weather {(curl http://wttr.in).content}
 function suh {'suh'}
 function update-profile {import-module $profile}
 function kcswitch {
