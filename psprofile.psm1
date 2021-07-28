@@ -22,7 +22,10 @@ function update-profile {import-module $profile}
 function kcswitch {
     param (
         [parameter(Mandatory=$true)]
-    kc config use-context $context}
+        $context
+    )
+    kc config use-context $context
+    }
 function kccontexts {kc config get-contexts}
 function kccurrent {kc config current-context}
 New-Alias -Name "k" -Value kc
@@ -41,11 +44,8 @@ function Maintain {
 }
 
 function nani {
-    [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseApprovedVerbs", "", Justification="Shut up, PowerShell.")]
-    Param(
-        [Parameter(Mandatory = $false)]
-        [string]$Command = (((Get-History -Count 1 | Select-Object -ExpandProperty CommandLine) -split("\s"))[0] -replace("[^a-zA-Z0-9\-_]", ""))
-    )
+    $history = get-History -count 1 | select-object -ExpandProperty CommandLine
+    $command = ($history -split("\s"))[0]
 
     Get-Help $Command
 }
