@@ -35,6 +35,7 @@ New-Alias -Name "Dicker" -Value Docker
 New-Alias -Name "Digger" -Value Docker
 New-Alias -Name "Dogger" -Value Docker
 New-Alias -Name "canine" -value k9s
+New-Alias -Name "tf" -Value terraform
 function Maintain {
     param(
         [String]
