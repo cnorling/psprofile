@@ -44,7 +44,7 @@ function Maintain {
         [String]
         $project                                            
     )
-    & "C:\users\teran.selin\git\$project.code-workspace"
+    & "~\git\$project.code-workspace"
 }
 
 function nani {
