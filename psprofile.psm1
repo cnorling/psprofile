@@ -12,6 +12,8 @@ function ggst {& git stash $args}
 function ggstp {& git stash pop $args}
 function ggp {& git push $args}
 function ggpom {& git pull origin master}
+function rebase {& git rebase origin/master}
+
 function gc {& gcloud $args}
 function nsl {nslookup $args}
 function fdns {ipconfig /flushdns}
