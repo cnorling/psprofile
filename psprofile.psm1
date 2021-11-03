@@ -44,7 +44,7 @@ function Maintain {
         [String]
         $project                                            
     )
-    code "~\git\$project.code-workspace"
+    start-process -FilePath "C:\Users\teran.selin\AppData\Local\Programs\Microsoft VS Code\code.exe" -ArgumentList "~\git\$project.code-workspace"
 }
 
 function nani {
