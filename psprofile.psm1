@@ -39,13 +39,7 @@ New-Alias -Name "Dogger" -Value Docker
 New-Alias -Name "cuddle" -Value kubectl
 New-Alias -Name "canine" -value k9s
 New-Alias -Name "tf" -Value terraform
-function Maintain {
-    param(
-        [String]
-        $project                                            
-    )
-    start-process -FilePath "C:\Users\teran.selin\AppData\Local\Programs\Microsoft VS Code\code.exe" -ArgumentList "~\git\$project.code-workspace"
-}
+New-Alias -Name "maintain" -Value code
 
 function nani {
     $history = get-History -count 1 | select-object -ExpandProperty CommandLine
