@@ -45,7 +45,7 @@ function Maintain {
         [String]
         $project                                            
     )
-    code "~\git\$project.code-workspace"
+    & "~\git\$project.code-workspace"
 }
 
 function nani {
