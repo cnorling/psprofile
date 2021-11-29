@@ -39,7 +39,14 @@ New-Alias -Name "Dogger" -Value Docker
 New-Alias -Name "cuddle" -Value kubectl
 New-Alias -Name "canine" -value k9s
 New-Alias -Name "tf" -Value terraform
-New-Alias -Name "maintain" -Value code
+
+function Maintain {
+    param(
+        [String]
+        $project                                            
+    )
+    code "~\git\$project.code-workspace"
+}
 
 function nani {
     $history = get-History -count 1 | select-object -ExpandProperty CommandLine
