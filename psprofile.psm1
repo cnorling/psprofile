@@ -45,6 +45,15 @@ function Maintain {
         [String]
         $project                                            
     )
+    $workspacePath = "~\git\$project.code-workspace"
+    # test if workspace exists
+    if (test-path $workspacePath) {
+        start-process $workspacePath
+    }
+    else {
+        $json = @{folders = @(@{path = $project})}
+        New-item -path $workspacePath -value $json
+    }
     & "~\git\$project.code-workspace"
 }
 
