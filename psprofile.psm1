@@ -48,13 +48,13 @@ function Maintain {
     $workspacePath = "~\git\$project.code-workspace"
     # test if workspace exists
     if (test-path $workspacePath) {
-        start-process $workspacePath
+        & $workspacePath > "NUL"
     }
     else {
         $json = @{folders = @(@{path = $project})}
         New-item -path $workspacePath -value $json
+        & $workspacePath > "NUL"    
     }
-    & "~\git\$project.code-workspace"
 }
 
 function nani {
