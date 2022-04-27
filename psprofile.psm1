@@ -45,7 +45,7 @@ function Maintain {
         [String]
         $project                                            
     )
-    $workspacePath = (get-item "~\git\$project.code-workspace").fullName
+    $workspacePath = "$home\git\$project.code-workspace"
     # test if workspace exists
     if (test-path $workspacePath) {
         code.cmd $workspacePath --log off
