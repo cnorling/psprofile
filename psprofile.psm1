@@ -12,24 +12,15 @@ function ggst {& git stash $args}
 function ggstp {& git stash pop $args}
 function ggp {& git push $args}
 function ggpom {& git pull origin master}
-function rebase {& git rebase origin/master}
-
 function gc {& gcloud $args}
 function nsl {nslookup $args}
 function fdns {ipconfig /flushdns}
-function kc {& kubectl $args}
+function kc {& kubectl config $args}
+function k {& kubectl $args}
 function get-weather {(curl http://wttr.in).content}
 function suh {'suh'}
 function update-profile {import-module $profile}
-function kcswitch {
-    param (
-        [parameter(Mandatory=$true)]
-        $context
-    )
-    kc config use-context $context
-    }
-function kccontexts {kc config get-contexts}
-function kccurrent {kc config current-context}
+
 New-Alias -Name "k" -Value kc
 New-Alias -Name "kcs" -Value kcswitch
 New-Alias -Name "grep" -Value Select-String
@@ -136,3 +127,5 @@ function bgdc {
                           ".__""">G>-.__.-">       .--,_
 '@
 }
+
+bgdc
