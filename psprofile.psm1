@@ -41,7 +41,7 @@ function Maintain {
     if (test-path $workspacePath) {
         code.cmd $workspacePath --log off
     } else {
-        $json = @{folders = @(@{path = $project})}
+        $json = convertto-json -InputObject @{folders = @(@{path = $project})}
         New-item -path $workspacePath -value $json
         code.cmd $workspacePath --log off
     }
