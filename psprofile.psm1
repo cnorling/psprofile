@@ -21,7 +21,6 @@ function get-weather {(curl http://wttr.in).content}
 function suh {'suh'}
 function update-profile {import-module $profile}
 
-New-Alias -Name "k" -Value kc
 New-Alias -Name "kcs" -Value kcswitch
 New-Alias -Name "grep" -Value Select-String
 New-Alias -Name "Dicker" -Value Docker
