@@ -33,10 +33,26 @@ New-Alias -Name "tf" -Value terraform
 function Maintain {
     param(
         [String]
-        $project                                            
+        $project,
+
+        [String]
+        $repository
     )
-    $workspacePath = "$home\git\$project.code-workspace"
-    # test if workspace exists
+
+    $destinationPath = "$home\git\$project"
+    $workspacePath = "$destinationPath.code-workspace"
+
+    # if folder doesn't exist, make it
+    if ((test-path $destinationPath)) {
+        new-item -ItemType Directory -path $destinationPath
+    }
+    if ($repository) {
+        # if repo isn't checked out, 
+        if (!(test-path "$destinationPath\.git")) {
+            git clone $repository $destinationPath
+        }
+    }
+    # if workspace exists, open it. If not, make one.
     if (test-path $workspacePath) {
         code.cmd $workspacePath --log off
     } else {
