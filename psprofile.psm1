@@ -29,6 +29,7 @@ New-Alias -Name "Dogger" -Value Docker
 New-Alias -Name "cuddle" -Value kubectl
 New-Alias -Name "canine" -value k9s
 New-Alias -Name "tf" -Value terraform
+New-Alias -Name "reload-profile" -Value update-profile
 
 function Maintain {
     param(
