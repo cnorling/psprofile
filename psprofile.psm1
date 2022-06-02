@@ -46,12 +46,21 @@ function Maintain {
     if ((test-path $destinationPath)) {
         new-item -ItemType Directory -path $destinationPath
     }
-    if ($repository) {
-        # if repo isn't checked out, 
-        if (!(test-path "$destinationPath\.git")) {
-            git clone $repository $destinationPath
+
+    # if repo isn't checked out, clone it
+    if (!(test-path "$destinationPath\.git")) {
+        if (!$repository) {
+            # see if a git repo is on the clipboard
+            $clipboard = get-clipboard
+            if ($clipboard -match '^git@github\.com:(.)*\.git$') {
+                $repository = $clipboard
+            } else {
+                throw "Given repository does not exist locally and is not on your clipboard"
+            }
         }
+        git clone $repository $destinationPath
     }
+
     # if workspace exists, open it. If not, make one.
     if (test-path $workspacePath) {
         code.cmd $workspacePath --log off
