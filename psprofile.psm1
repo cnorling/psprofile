@@ -44,7 +44,7 @@ function Maintain {
     $workspacePath = "$destinationPath.code-workspace"
 
     # if folder doesn't exist, make it
-    if ((test-path $destinationPath)) {
+    if (!(test-path $destinationPath)) {
         new-item -ItemType Directory -path $destinationPath
     }
 
