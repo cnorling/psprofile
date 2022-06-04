@@ -15,13 +15,12 @@ function ggpom {& git pull origin master}
 function gc {& gcloud $args}
 function nsl {nslookup $args}
 function fdns {ipconfig /flushdns}
-function kc {& kubectl config $args}
 function k {& kubectl $args}
+function p {& pulumi $args}
 function get-weather {(curl http://wttr.in).content}
 function suh {'suh'}
 function update-profile {import-module $profile}
 
-New-Alias -Name "kcs" -Value kcswitch
 New-Alias -Name "grep" -Value Select-String
 New-Alias -Name "Dicker" -Value Docker
 New-Alias -Name "Digger" -Value Docker
