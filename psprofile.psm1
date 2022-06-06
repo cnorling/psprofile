@@ -11,6 +11,7 @@ function ggck {& git checkout $args}
 function ggst {& git stash $args}
 function ggstp {& git stash pop $args}
 function ggp {& git push $args}
+function ggpf {& git push --force-with-lease $args}
 function ggpom {& git pull origin master}
 function gc {& gcloud $args}
 function nsl {nslookup $args}
