@@ -7,6 +7,7 @@ function ggb {& git branch}
 function gga {& git add $args}
 function ggaa {& git add *}
 function ggc {& git commit -m $args}
+function ggca {& git commit --amend --no-edit}
 function ggck {& git checkout $args}
 function ggst {& git stash $args}
 function ggstp {& git stash pop $args}
