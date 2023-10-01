@@ -14,6 +14,7 @@ function ggstp {& git stash pop $args}
 function ggp {& git push $args}
 function ggpf {& git push --force-with-lease $args}
 function ggpom {& git pull origin master}
+function ggl {& git log --oneline --graph}
 function gc {& gcloud $args}
 function nsl {nslookup $args}
 function fdns {ipconfig /flushdns}
