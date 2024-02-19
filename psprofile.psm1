@@ -23,6 +23,7 @@ function p {& pulumi $args}
 function get-weather {(curl http://wttr.in).content}
 function suh {'suh'}
 function update-profile {import-module $profile}
+function dwr { dotnet watch run }
 
 New-Alias -Name "grep" -Value Select-String
 New-Alias -Name "Dicker" -Value Docker
