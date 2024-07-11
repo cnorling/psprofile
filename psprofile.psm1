@@ -1,6 +1,3 @@
-
-import-module posh-git
-
 function ggs {& git status $args}
 function ggf {& git fetch}
 function ggb {& git branch}
